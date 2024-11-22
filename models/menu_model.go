@@ -4,7 +4,7 @@ import "gvb_server/models/ctype"
 
 // MenuModel 菜单表
 type MenuModel struct {
-	// MODEL
+	MODEL
 	MenuTitle    string        `gorm:"size:32" json:"menu_title"`
 	MenuTitleEn  string        `gorm:"size:32" json:"menu_title_en"`
 	Slogan       string        `gorm:"size:64" json:"slogan"`

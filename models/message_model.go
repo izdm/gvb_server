@@ -2,7 +2,7 @@ package models
 
 // MessageModel 记录消息
 type MessageModel struct {
-	// MODEL
+	MODEL
 	SendUserID     uint      `gorm:"primaryKey" json:"send_user_id"` // 发送人id
 	SendUserModel  UserModel `gorm:"foreignKey:SendUserID" json:"-"`
 	SendUserName   string    `gorm:"size:42" json:"send_user_nick_name"`
