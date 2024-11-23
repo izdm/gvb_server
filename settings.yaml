@@ -33,22 +33,10 @@ site_info:
   bilibili_url: https://space.bilibili.com/359151217
   gitee_url: https://gitee.com/fengfengzhidao
   github_url: https://github.com/fengfengzhidao/
-jwt:
-  secret: xxxx
-  expires: 48
-  issuer: xx
 qq:
-  app-id: "xx"
+  app_id: ""
   key: xx
   redirect: http://xx.xx.com/login?flag=qq
-email:
-  host: smtp.qq.com
-  port: 465
-  user: xxxx@qq.com
-  password: xxx
-  default_from_email: DM知道
-  use-ssl: xx
-  user-tls: xx
 qi_niu:
   access_key: UMM-xx-FdRIf-xx
   secret_key: xx
@@ -56,3 +44,15 @@ qi_niu:
   cdn: xx://xx.xx.com/
   zone: xx
   size: 5
+email:
+  host: smtp.qq.com
+  port: 465
+  user: 2371522043@qq.com
+  password: xxx
+  default_from_email: JJIDM知道
+  use_ssl: false
+  user_tls: false
+jwt:
+  secret: xxxxxx
+  expires: 48
+  issuer: xx
