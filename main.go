@@ -24,6 +24,7 @@ func main() {
 		flag.SwitchOption(option)
 		return
 	}
+
 	router := routers.InitRouter()
 	addr := global.Config.System.Addr()
 	global.Log.Infof("gvb_server运行在%s", addr)
