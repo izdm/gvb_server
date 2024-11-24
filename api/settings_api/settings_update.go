@@ -8,6 +8,7 @@ import (
 	"gvb_server/models/res"
 )
 
+// 修改某一项的配置信息
 func (SettingsApi) SettingsInfoUpdateView(c *gin.Context) {
 	var cr SettingsUri
 	err := c.ShouldBindUri(&cr)

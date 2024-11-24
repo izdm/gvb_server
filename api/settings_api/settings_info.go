@@ -10,7 +10,7 @@ type SettingsUri struct {
 	Name string `uri:"name"`
 }
 
-// 显示第一项的配置信息
+// 显示某一项的配置信息，这样子把多个接口合并成一个
 func (SettingsApi) SettingsInfoView(c *gin.Context) {
 	var cr SettingsUri
 	err := c.ShouldBindUri(&cr)
