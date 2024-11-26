@@ -41,12 +41,14 @@ qq:
   key: xx
   redirect: http://xx.xx.com/login?flag=qq
 qi_niu:
-  access_key: UMM-xx-FdRIf-xx
-  secret_key: xx
-  bucket: fengfengzhidao
-  cdn: xx://xx.xx.com/
-  zone: xx
-  size: 5
+  enable: true
+  access_key: 694sybYn3EZvWMKPwpNzXwXrVBzk5YAFw-XGc1EI
+  secret_key: VQfpbQkJ56Iq3vtpYFwuHwmcjCBl8uXNelHVhBvI
+  bucket: jjidm
+  cdn: 	snjeuaut0.hd-bkt.clouddn.com
+  zone: http(s)://up.qiniup.com
+  size: 6
+  prefix: gvb
 email:
   host: smtp.qq.com
   port: 465
