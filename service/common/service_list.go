@@ -14,26 +14,35 @@ type Option struct {
 func ComList[T any](model T, option Option) (list []T, count int64, err error) {
 	DB := global.DB
 	if option.Debug {
-		DB = global.DB.Session(&gorm.Session{Logger: global.MysqlLog})
+		DB = DB.Session(&gorm.Session{Logger: global.MysqlLog})
 	}
 
 	if option.Sort == "" {
-		option.Sort = "created_at desc" //默认按照时间往前面排序
+		option.Sort = "created_at desc" // 默认按照时间降序排列
 	}
 
-	count = DB.Debug().Select("id").Find(&list).RowsAffected
+	query := DB.Where(model)
 
-	//如果传的值
+	// 统计总数
+	countQuery := DB.Model(&model).Where(model)
+	countQuery.Count(&count)
+
+	// 如果未指定分页，则返回全部数据
 	if option.Limit == 0 {
-		err = DB.Debug().Order(option.Sort).Find(&list).Error
+		err = query.Order(option.Sort).Find(&list).Error
 		return list, count, err
 	}
 
+	// 分页查询
 	offset := (option.PageInfo.Page - 1) * option.PageInfo.Limit
 	if offset < 0 {
 		offset = 0
 	}
-	err = DB.Debug().Limit(option.Limit).Offset(offset).Order(option.Sort).Find(&list).Error
+
+	err = query.Limit(option.PageInfo.Limit).
+		Offset(offset).
+		Order(option.Sort).
+		Find(&list).Error
 
 	return list, count, err
 }

@@ -43,7 +43,11 @@ func (t *LogFormatter) Format(entry *logrus.Entry) ([]byte, error) {
 	//自定义日期格式
 	timestamp := entry.Time.Format("2006-01-02 15:04:05")
 	if entry.HasCaller() {
-		funcVal := entry.Caller.Function
+		funcVal := entry.Caller.Function //entry.Caller.Function: 获取调用日志的函数全名（如 main.main）
+		//entry.Caller.File: 获取调用日志的源文件路径（如 /home/user/main.go）。
+		//path.Base(entry.Caller.File): 提取文件名部分（如 main.go）。
+		//entry.Caller.Line: 获取调用日志的位置行号。
+		//fileVal: 组合文件名和行号，生成形如 main.go:42 的字符串。
 		fileVal := fmt.Sprintf("%s:%d", path.Base(entry.Caller.File), entry.Caller.Line)
 		fmt.Fprintf(
 			b,
