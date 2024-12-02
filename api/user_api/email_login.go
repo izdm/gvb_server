@@ -5,7 +5,7 @@ import (
 	"gvb_server/global"
 	"gvb_server/models"
 	"gvb_server/models/res"
-	"gvb_server/utils/jwt"
+	"gvb_server/utils/jwts"
 	"gvb_server/utils/pwd"
 )
 
@@ -39,7 +39,7 @@ func (UserApi) EmailLoginView(c *gin.Context) {
 	}
 
 	//登陆成功，生成token
-	token, err := jwt.GenToken(jwt.JwtPayload{
+	token, err := jwts.GenToken(jwts.JwtPayload{
 		NickName: userModel.NickName,
 		Role:     int(userModel.Role),
 		UserID:   userModel.ID,
