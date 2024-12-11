@@ -10,4 +10,7 @@ func (router RouterGroup) UserRouter() {
 	router.POST("email_login", app.EmailLoginView)
 	router.GET("users", middleware.JwtAuth(), app.UserListView)
 	router.PUT("user_role", middleware.JwtAdmin(), app.UserUpdateRoleView)
+	router.PUT("user_password", middleware.JwtAuth(), app.UserUpdatePassword)
+	router.POST(("logout"), middleware.JwtAuth(), app.LogotView)
+	router.DELETE("users", middleware.JwtAdmin(), app.UserRemove)
 }
