@@ -53,9 +53,9 @@ email:
   host: smtp.qq.com
   port: 465
   user: 2371522043@qq.com
-  password: xxx
+  password: "fcdndalmylbmdibb"
   default_from_email: JJIDM知道
-  use_ssl: false
+  use_ssl: true
   user_tls: false
 jwt:
   secret: xxxxxx
